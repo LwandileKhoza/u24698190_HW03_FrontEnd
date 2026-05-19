@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Movie Info</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="details-container" *ngIf="movie">
+
+    <div class="poster-wrapper">
+      <img
+        [src]="(movie.Poster && movie.Poster !== 'N/A') ? movie.Poster : (movie.poster || 'assets/no-poster.png')"
+        alt="{{ movie.Title || movie.title }}"
+        class="poster-img">
+    </div>
+
+    <div class="info-section">
+
+      <h1 class="movie-title">{{ movie.Title || movie.title }}</h1>
+
+      <p class="movie-year">{{ movie.Year || movie.year }}</p>
+
+      <p class="cast-label"><strong>Cast</strong></p>
+      <p class="cast-names">{{ movie.Actors || movie.actors }}</p>
+
+      <p class="cast-label"><strong>Genre</strong></p>
+      <p class="cast-names">{{ movie.Genre || movie.genre }}</p>
+
+      <p class="cast-label"><strong>IMDb Rating</strong></p>
+      <p class="cast-names">⭐ {{ movie.imdbRating || movie.imdbRating || 'N/A' }}</p>
+
+      <div class="action-buttons">
+
+        <ion-button expand="block" fill="outline" (click)="addToWatchlist()">
+          <ion-icon name="add" slot="start"></ion-icon>
+          Add to Watchlist
+        </ion-button>
+
+        <ion-button expand="block" (click)="markAsWatched()">
+          <ion-icon name="checkmark-circle" slot="start"></ion-icon>
+          Mark as Watched
+        </ion-button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="no-data" *ngIf="!movie">
+    <p>No movie data available.</p>
+    <ion-button expand="block" routerLink="/tabs/search">
+      Go to Search
+    </ion-button>
+  </div>
+
+</ion-content>
