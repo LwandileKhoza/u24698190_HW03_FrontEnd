@@ -1,0 +1,82 @@
+$accent: #e50914;
+$gold: #f5c518;
+$dark-bg: #141414;
+$card-bg: #1f1f1f;
+
+ion-content.login-content {
+  --background: #{$dark-bg};
+  --color: #fff;
+}
+
+ion-header ion-toolbar {
+  --background: #{$dark-bg};
+  --color: #fff;
+  --border-color: transparent;
+}
+
+.logo-container {
+  text-align: center;
+  padding: 40px 0 32px;
+
+  .logo-icon {
+    font-size: 56px;
+    color: $accent;
+    display: block;
+    margin: 0 auto 8px;
+  }
+
+  .logo-title {
+    font-size: 2.4em;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    letter-spacing: 2px;
+  }
+
+  .logo-subtitle {
+    font-size: 1em;
+    color: #aaa;
+    margin: 4px 0 0;
+  }
+}
+
+.input-item {
+  --background: #{$card-bg};
+  --color: #fff;
+  --border-color: #333;
+  --highlight-color-focused: #{$accent};
+  border-radius: 8px;
+  margin-bottom: 12px;
+
+  ion-label {
+    color: #aaa !important;
+  }
+
+  ion-input {
+    --color: #fff;
+    --placeholder-color: #666;
+  }
+}
+
+.error-text {
+  color: $accent;
+  font-size: 0.9em;
+  text-align: center;
+  margin: 8px 0;
+}
+
+.action-btn {
+  --background: #{$accent};
+  --color: #fff;
+  margin-top: 16px;
+  height: 48px;
+  font-size: 1em;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.toggle-btn {
+  --color: #aaa;
+  margin-top: 8px;
+  font-size: 0.9em;
+}
