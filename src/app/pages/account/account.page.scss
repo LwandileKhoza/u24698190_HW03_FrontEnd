@@ -1,0 +1,69 @@
+$dark-bg: #141414;
+$card-bg: #1f1f1f;
+$accent: #e50914;
+
+ion-content {
+  --background: #{$dark-bg};
+  --color: #fff;
+}
+
+ion-header ion-toolbar {
+  --background: #{$dark-bg};
+  --color: #fff;
+  --border-color: #222;
+}
+
+.profile-header {
+  text-align: center;
+  padding: 32px 0 24px;
+
+  .avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #e50914;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+
+    span {
+      font-size: 2em;
+      font-weight: 700;
+      color: #fff;
+    }
+  }
+
+  .email {
+    font-size: 1em;
+    color: #ccc;
+    font-weight: 400;
+  }
+}
+
+.stats-list {
+  background: transparent;
+  margin-bottom: 32px;
+
+  ion-item {
+    --background: #{$card-bg};
+    --color: #fff;
+    --border-color: #333;
+    border-radius: 8px;
+    margin-bottom: 8px;
+
+    ion-label h2 {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    ion-label p {
+      color: #aaa;
+    }
+  }
+}
+
+ion-button[color="danger"] {
+  margin-top: 8px;
+  font-weight: 600;
+}

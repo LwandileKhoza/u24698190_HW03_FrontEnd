@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Watchlist</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content class="ion-padding">
+ 
+  <div style="text-align:center; padding: 40px 0;" *ngIf="isLoading">
+    <ion-spinner name="crescent" color="danger"></ion-spinner>
+  </div>
+ 
+  <p class="list-count" *ngIf="!isLoading && watchlist.length > 0">{{ watchlist.length }} movies</p>
+ 
+  <div class="empty-state" *ngIf="!isLoading && watchlist.length === 0">
+    <ion-icon name="bookmark-outline" class="empty-icon"></ion-icon>
+    <p>Your Watchlist is empty.</p>
+    <ion-button expand="block" routerLink="/tabs/search">Search Movies</ion-button>
+  </div>
+ 
+  <ion-grid *ngIf="!isLoading && watchlist.length > 0">
+    <ion-row>
+      <ion-col size="6" *ngFor="let movie of watchlist">
+ 
+        <div class="movie-card" (click)="viewDetails(movie)">
+ 
+          <img
+            [src]="(movie.poster && movie.poster !== 'N/A') ? movie.poster : 'assets/no-poster.png'"
+            alt="{{ movie.title }}"
+            class="poster-img">
+ 
+          <div class="movie-info">
+            <p class="movie-title">{{ movie.title }}</p>
+            <p class="movie-year">{{ movie.year }}</p>
+          </div>
+ 
+          <ion-button
+            expand="block"
+            size="small"
+            (click)="markAsWatched(movie); $event.stopPropagation()">
+            <ion-icon name="checkmark" slot="start"></ion-icon>
+            Watched
+          </ion-button>
+ 
+          <ion-button
+            expand="block"
+            size="small"
+            color="danger"
+            fill="outline"
+            (click)="removeFromWatchlist(movie.omdbId); $event.stopPropagation()">
+            Remove
+          </ion-button>
+ 
+        </div>
+ 
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ 
+</ion-content>

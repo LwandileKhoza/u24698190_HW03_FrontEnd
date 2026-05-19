@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>FilmLog</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding login-content">
+
+  <div class="logo-container">
+    <ion-icon name="film" class="logo-icon"></ion-icon>
+    <h1 class="logo-title">FilmLog</h1>
+    <p class="logo-subtitle">Track your movie journey</p>
+  </div>
+
+  <ion-item class="input-item">
+    <ion-label position="floating">Email</ion-label>
+    <ion-input
+      type="email"
+      placeholder="your@email.com"
+      [(ngModel)]="credentials.email">
+    </ion-input>
+  </ion-item>
+
+  <ion-item class="input-item">
+    <ion-label position="floating">Password</ion-label>
+    <ion-input
+      type="password"
+      placeholder="••••••••"
+      [(ngModel)]="credentials.password">
+    </ion-input>
+  </ion-item>
+
+  <p class="error-text" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+  <ion-button expand="full" class="action-btn" (click)="login()" *ngIf="!isSignupMode">
+    Log in
+  </ion-button>
+
+  <ion-button expand="full" class="action-btn" (click)="signup()" *ngIf="isSignupMode">
+    Sign up
+  </ion-button>
+
+  <ion-button expand="block" fill="clear" class="toggle-btn" (click)="toggleMode()">
+    {{ isSignupMode ? 'Already have an account? Log in' : "Don't have an account? Sign up" }}
+  </ion-button>
+
+</ion-content>

@@ -1,0 +1,83 @@
+$accent: #e50914;
+$gold: #f5c518;
+$dark-bg: #141414;
+$card-bg: #1f1f1f;
+
+ion-content {
+  --background: #{$dark-bg};
+  --color: #fff;
+}
+
+ion-header ion-toolbar {
+  --background: #{$dark-bg};
+  --color: #fff;
+  --border-color: #222;
+}
+
+.details-container {
+  display: block;
+}
+
+.poster-wrapper {
+  width: 100%;
+  max-height: 420px;
+  overflow: hidden;
+
+  .poster-img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.info-section {
+  padding: 20px 16px;
+
+  .movie-title {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 4px;
+  }
+
+  .movie-year {
+    font-size: 1em;
+    color: #aaa;
+    margin: 0 0 16px;
+  }
+
+  .cast-label {
+    font-size: 0.95em;
+    color: $gold;
+    margin: 0 0 4px;
+    font-weight: 600;
+  }
+
+  .cast-names {
+    font-size: 0.9em;
+    color: #ccc;
+    margin: 0 0 24px;
+    line-height: 1.5;
+  }
+}
+
+.action-buttons {
+  ion-button {
+    margin-bottom: 12px;
+    --background: #{$accent};
+    --color: #fff;
+    font-weight: 600;
+
+    &[fill="outline"] {
+      --background: transparent;
+      --color: #{$gold};
+      --border-color: #{$gold};
+    }
+  }
+}
+
+.no-data {
+  text-align: center;
+  padding: 40px 16px;
+  color: #aaa;
+}

@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Search Movies</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content class="ion-padding">
+ 
+  <ion-item>
+    <ion-input
+      [(ngModel)]="query"
+      placeholder="Search for a movie...">
+    </ion-input>
+  </ion-item>
+ 
+  <ion-button expand="full" (click)="searchMovies()" [disabled]="isLoading">
+    {{ isLoading ? 'Searching...' : 'Search' }}
+  </ion-button>
+ 
+  <p class="error-text" *ngIf="errorMessage">{{ errorMessage }}</p>
+ 
+  <div class="result-card" *ngIf="movie">
+ 
+    <img
+      [src]="(movie.Poster && movie.Poster !== 'N/A') ? movie.Poster : 'assets/no-poster.png'"
+      alt="{{ movie.Title }}"
+      class="poster-img">
+ 
+    <div class="movie-info">
+      <h2 class="movie-title">{{ movie.Title }}</h2>
+      <p class="movie-year">{{ movie.Year }}</p>
+      <p class="movie-genre">{{ movie.Genre }}</p>
+      <p class="movie-rating">⭐ {{ movie.imdbRating }}</p>
+    </div>
+ 
+    <div class="action-buttons">
+ 
+      <ion-button
+        expand="block"
+        fill="outline"
+        [disabled]="isAddedToWatchlist"
+        (click)="addToWatchlist()">
+        {{ isAddedToWatchlist ? '✓ Added' : '+ Watchlist' }}
+      </ion-button>
+ 
+      <ion-button expand="block" (click)="viewDetails()">
+        View Details
+      </ion-button>
+ 
+    </div>
+ 
+  </div>
+ 
+</ion-content>

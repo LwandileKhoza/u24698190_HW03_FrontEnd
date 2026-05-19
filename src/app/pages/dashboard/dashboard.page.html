@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Statistics</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <p class="subtitle">Your movie insights</p>
+
+  <!-- Loading state -->
+  <div class="loading" *ngIf="isLoading">
+    <ion-spinner name="crescent" color="danger"></ion-spinner>
+  </div>
+
+  <!-- Empty state -->
+  <div class="empty-state" *ngIf="!isLoading && watched.length === 0">
+    <ion-icon name="bar-chart-outline" class="empty-icon"></ion-icon>
+    <p>Watch some movies to see your stats.</p>
+    <ion-button routerLink="/tabs/search">Find Movies</ion-button>
+  </div>
+
+  <!-- Charts section — *ngIf mirrors Angular 1 DIY *ngIf pattern -->
+  <div *ngIf="!isLoading && watched.length > 0">
+
+    <!-- Pie Chart — Top 6 Genres -->
+    <div class="chart-card">
+      <h3 class="chart-title">Top Genres in your Watched List</h3>
+      <canvas #pieCanvas></canvas>
+    </div>
+
+    <!-- Bar Chart — Movies per Year -->
+    <div class="chart-card">
+      <h3 class="chart-title">Movies Watched by Release Year</h3>
+      <canvas #barCanvas></canvas>
+    </div>
+
+    <!-- Table — Most Re-watched -->
+    <!-- Mirrors table format from Angular 1 DIY PDF extra material section -->
+    <div class="chart-card">
+      <h3 class="chart-title">Most Re-watched Movies</h3>
+      <table class="stats-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Times Watched</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- *ngFor mirrors table *ngFor from Angular 1 DIY reference -->
+          <tr *ngFor="let movie of tableData; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ movie.title }}</td>
+            <td>{{ movie.year }}</td>
+            <!-- timesWatched rendered as number — mirrors {{ s.fee | currency }} pattern -->
+            <td class="times-badge">{{ movie.timesWatched }}x</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</ion-content>

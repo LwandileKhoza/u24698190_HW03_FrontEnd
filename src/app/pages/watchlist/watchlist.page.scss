@@ -1,0 +1,89 @@
+$accent: #e50914;
+$gold: #f5c518;
+$dark-bg: #141414;
+$card-bg: #1f1f1f;
+
+ion-content {
+  --background: #{$dark-bg};
+  --color: #fff;
+}
+
+ion-header ion-toolbar {
+  --background: #{$dark-bg};
+  --color: #fff;
+  --border-color: #222;
+}
+
+.list-count {
+  color: #aaa;
+  font-size: 0.9em;
+  margin: 0 0 12px 4px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 16px;
+  color: #aaa;
+
+  .empty-icon {
+    font-size: 56px;
+    color: #333;
+    display: block;
+    margin: 0 auto 12px;
+  }
+
+  p {
+    margin-bottom: 16px;
+  }
+
+  ion-button {
+    --background: #{$accent};
+  }
+}
+
+.movie-card {
+  background: $card-bg;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  cursor: pointer;
+
+  .poster-img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    display: block;
+  }
+
+  .movie-info {
+    padding: 8px;
+  }
+
+  .movie-title {
+    font-size: 0.85em;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .movie-year {
+    font-size: 0.75em;
+    color: #aaa;
+    margin: 0 0 6px;
+  }
+
+  ion-button {
+    margin: 0 6px 6px;
+    font-size: 0.75em;
+    --background: #{$accent};
+
+    &[color="danger"] {
+      --color: #{$accent};
+      --border-color: #{$accent};
+      --background: transparent;
+    }
+  }
+}
